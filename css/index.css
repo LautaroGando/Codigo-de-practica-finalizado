@@ -1,0 +1,13 @@
+@import url(styles.css);
+@import url(admin.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.swal2-container {
+    z-index: 11000;
+}

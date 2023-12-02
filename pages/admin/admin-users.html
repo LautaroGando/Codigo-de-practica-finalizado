@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/verify-admin.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>Codigo de Practica</title>
+</head>
+
+<body>
+
+    <header>
+        <!-- MENU DE NAVEGACION -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index.html">
+                    <img src="/assets/icons/logo.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul id="ulLogoutAndAdmin" class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/index.html">INICIO</a>
+                        </li>
+                        <!-- ! Comentar esta linea del codigo para arrancar con el JS header.js -->
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                ADMIN
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="admin-products.html">ADMINISTRAR PRODUCTOS</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="admin-users.html">ADMINISTRAR USUARIOS</a></li>
+                            </ul>
+                        </li> -->
+                        <!-- ! ---------------------------------- -->
+                        <li id="liRegister" class="nav-item">
+                            <!-- ! Comentar esta linea del codigo para arrancar con el JS header.js -->
+                            <!-- BOTON DEL MODAL -->
+                            <!-- <a class="nav-link" aria-disabled="true" href="#" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">REGISTRARSE</a> -->
+                            <!-- ! ------------------------------ -->
+
+                            <!-- MODAL -->
+                            <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">REGISTRARSE
+                                            </h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-light">
+                                            <form id="formRegister">
+                                                <div class="mb-3">
+                                                    <label for="registerImage" class="form-label">URL de imagen:</label>
+                                                    <input type="text" class="form-control" id="registerImage"
+                                                        name="registerImage">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="registerUsername" class="form-label">Usuario:</label>
+                                                    <input type="text" class="form-control" id="registerUsername"
+                                                        name="registerUsername">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="registerFullname" class="form-label">Nombre
+                                                        completo:</label>
+                                                    <input type="text" class="form-control" id="registerFullname"
+                                                        name="registerFullname">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="registerEmail" class="form-label">Correo
+                                                        electronico:</label>
+                                                    <input type="email" class="form-control" id="registerEmail"
+                                                        name="registerEmail">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="registerConfirmEmail" class="form-label">Confirmar
+                                                        correo electronico:</label>
+                                                    <input type="email" class="form-control" id="registerConfirmEmail"
+                                                        name="registerConfirmEmail">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="registerPassword" class="form-label">Contraseña:</label>
+                                                    <input type="password" class="form-control" id="registerPassword"
+                                                        name="registerPassword">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="registerConfirmPassword" class="form-label">Confirmar
+                                                        contraseña:</label>
+                                                    <input type="password" class="form-control"
+                                                        id="registerConfirmPassword" name="registerConfirmPassword">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="registerLocation" class="form-label">Localidad:</label>
+                                                    <select name="registerLocation" id="registerLocation"
+                                                        class="form-control">
+                                                        <option value="">Seleccione una opcion</option>
+                                                        <option value="Liniers">Liniers</option>
+                                                        <option value="Floresta">Floresta</option>
+                                                        <option value="Flores">Flores</option>
+                                                        <option value="Almagro">Almagro</option>
+                                                        <option value="Versalles">Versalles</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="registerDate" class="form-label">Fecha de
+                                                        nacimiento:</label>
+                                                    <input type="date" class="form-control" id="registerDate"
+                                                        name="registerDate">
+                                                </div>
+                                                <div class="mb-3 form-check">
+                                                    <input type="checkbox" class="form-check-input" id="registerCheck"
+                                                        name="registerCheck">
+                                                    <label class="form-check-label" for="registerCheck">Acepto los
+                                                        terminos y condiciones.</label>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Cerrar</button>
+                                                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- BOTON DEL MODAL -->
+                    <!-- ! Comentar esta linea del codigo para arrancar con el JS header.js -->
+                    <!-- <button type="button" class="btn btn-secondary m-2" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">
+                        <i class="fa-solid fa-user text-dark"></i>
+                    </button> -->
+                    <!-- ! -------------------------------------- -->
+
+                    <!-- MODAL -->
+                    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">INICIAR SESION</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-light">
+                                    <form id="formLogin">
+                                        <div class="mb-3">
+                                            <label for="loginEmail" class="form-label">Correo
+                                                electronico:</label>
+                                            <input type="email" class="form-control" id="loginEmail" name="loginEmail">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="loginPassword" class="form-label">Contraseña:</label>
+                                            <input type="password" class="form-control" id="loginPassword"
+                                                name="loginPassword">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cerrar</button>
+                                            <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <main class="admin">
+
+        <form class="text-light" id="formUsers">
+            <h2>AGREGAR USUARIO</h2>
+            <input type="hidden" name="id" id="id">
+            <div class="d-flex mb-2" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar usuario..." id="search" aria-label="Search">
+                <button class="btn btn-outline-success" type="button">Buscar</button>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">URL de imagen:</label>
+                <input type="text" class="form-control" id="image" name="image">
+            </div>
+            <div class="mb-3">
+                <label for="fullname" class="form-label">Nombre completo:</label>
+                <input type="text" class="form-control" id="fullname" name="fullname">
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Nombre de usuario:</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo electronico:</label>
+                <input type="email" class="form-control" name="email" id="email">
+            </div>
+            <div class="mb-3">
+                <label for="confirmEmail" class="form-label">Confirmar correo electronico:</label>
+                <input type="email" class="form-control" name="confirmEmail" id="confirmEmail">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña:</label>
+                <input type="password" class="form-control" name="password" id="password">
+            </div>
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirmar contraseña:</label>
+                <input type="password" class="form-control" name="confirmPassword" id="confirmPassword">
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Localidad:</label>
+                <select class="form-control" name="location" id="location">
+                    <option value="">Seleccione una opcion</option>
+                    <option value="Liniers">Liniers</option>
+                    <option value="Floresta">Floresta</option>
+                    <option value="Flores">Flores</option>
+                    <option value="Almagro">Almagro</option>
+                    <option value="Versalles">Versalles</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="date" class="form-label">Fecha de nacimiento:</label>
+                <input type="date" class="form-control" id="date" name="date">
+            </div>
+            <div class="mb-3">
+                <label for="role" class="form-label">Rol:</label>
+                <input type="text" class="form-control" id="role" name="role">
+            </div>
+            <div class="mb-3">
+                <label for="createDate" class="form-label">Fecha de creacion:</label>
+                <input type="date" class="form-control" id="createDate" name="createDate">
+            </div>
+            <button type="submit" class="btn btn-primary">AGREGAR</button>
+        </form>
+
+        <div class="table">
+
+            <table class="table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">IMAGEN</th>
+                        <th scope="col">NOMBRE COMPLETO</th>
+                        <th scope="col">USUARIO</th>
+                        <th scope="col">CORREO ELECTRONICO</th>
+                        <th scope="col">LOCALIDAD</th>
+                        <th scope="col">FECHA DE NACIMIENTO</th>
+                        <th scope="col">ROL</th>
+                        <th scope="col">FECHA DE CREACION</th>
+                        <th scope="col">ACCION</th>
+                    </tr>
+                </thead>
+                <tbody id="tableUsers">
+                    
+                </tbody>
+            </table>
+
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/admin-users.js"></script>
+    <script src="/js/header.js"></script>
+</body>
+
+</html>
